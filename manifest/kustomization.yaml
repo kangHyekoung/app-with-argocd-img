@@ -3,5 +3,5 @@ resources:
   - argocd-img-serivce.yaml
 images:
   - name: nginx
-    newName: nginx
-    newTag: "1.25"
+    newName: dockerlecture2/app-with-argocd-img
+    newTag: "1825d39"
