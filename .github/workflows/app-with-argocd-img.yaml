@@ -86,14 +86,8 @@ jobs:
       run: |
         sed -i "s%image: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:[a-f0-9]\+%image: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_REPOSITORY }}:${{ env.SHORT_SHA }}%" ./manifest/argocd-img-deployment.yaml
     
-    - name: Check Git status
-      run: |
-        echo "=== git status ==="
-        git status
-        echo "=== git diff ==="
-        git diff
-        echo "=== staged files ==="
-        git diff --cached
+    - name: Check if image line changed
+      run: cat ./manifest/argocd-img-deployment.yaml | grep image
     - name: Commit and push changes
       run: |
         git config --local user.email "kanghyekoung3694@gmail.com"
