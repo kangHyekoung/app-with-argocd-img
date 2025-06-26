@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: argocd-img-container
-        image: dockerlecture2/app-with-argocd-img:9d9404d
+        image: dockerlecture2/app-with-argocd-img:e922fff
